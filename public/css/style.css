@@ -1,0 +1,115 @@
+:root {
+  --brown: rgb(40, 25, 0);
+  --cream: rgb(200, 208, 180);
+  --grey: rgb(155, 155, 155);
+}
+
+* {
+  font-family:  sans-serif;
+  margin: 0px;
+}
+
+body {
+  background-color: var(--cream);
+}
+
+nav {
+  height: 120px;
+  padding: 15px;
+  background-color: var(--brown);
+}
+
+nav h1 {
+  font-size: 2rem;
+  border-radius: 10px;
+  color: var(--brown);
+  background-color: var(--cream);
+  box-shadow: 5px 10px #888888;
+  padding: 8px;
+  margin: 20px;
+  width: max-content;
+}
+
+nav a {
+  color: var(--cream);
+  padding: 15px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.card {
+  margin: 30px;
+  border: 5px solid var(--brown);
+}
+
+.card-header {
+  color: var(--grey);
+  background-color: var(--brown);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.card-header h3 {
+  font-size: 25px;
+}
+
+.description {
+  padding: 10px;
+}
+
+.form-card {
+  margin: 30px;
+  border: 5px solid var(--brown);
+}
+
+.form-card-header {
+  font-size: 30px;
+  background-color: var(--brown);
+  color: var(--cream);
+  padding: 10px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.input {
+  width: 95%;
+  margin-top: 10px;
+  padding: 10px;
+  border: white;
+}
+
+.login-btn {
+  margin: 10px 0px 10px 0px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--grey);
+  border-color: var(--grey);
+  color: white;
+  font-size: 20px;
+}
+
+.signup-btn {
+  margin: 10px 0px 10px 0px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--grey);
+  border-color: var(--grey);
+  color: white;
+  font-size: 20px;
+}
+
+.form-card a {
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--brown);
+}
