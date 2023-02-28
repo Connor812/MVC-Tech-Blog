@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
         include: { model: BlogPost }
     });
-
+    
     const blogPosts = userBlogpostData.get({ plain: true });
     console.log(blogPosts)
         res.render('dashboard', {

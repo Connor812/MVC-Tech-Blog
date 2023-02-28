@@ -1,0 +1,6 @@
+<h1>Welcome, {{blogPosts.username}}</h1>
+<div class="user-blogposts">
+{{#each blogPosts.blog_posts as |blogpost|}}
+{{> dashboard-details}}
+{{/each}}
+</div>
