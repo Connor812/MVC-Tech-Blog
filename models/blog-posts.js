@@ -27,6 +27,10 @@ class BlogPost extends Model {}
         type: DataTypes.STRING,
         allowNull: false,
       },
+      date: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,

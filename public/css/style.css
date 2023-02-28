@@ -37,6 +37,15 @@ nav a {
   text-decoration: none;
 }
 
+/* #logout {
+  color: var(--cream);
+  font-size: 25px;
+  width: 10%;
+  height: 30%;
+  background: none;
+  border: none;
+} */
+
 .card {
   margin: 30px;
   border: 5px solid var(--brown);
