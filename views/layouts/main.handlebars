@@ -12,20 +12,32 @@
 
 <body>
   <nav>
-    <a href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    {{#if loggedIn}}
-    <a id="logout" href="/">Logout</a>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-    <h1>The Tech Blog</h1>
+    <div>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      {{#if loggedIn}}
+      <a id="logout" href="/">Logout</a>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+      <h1>The Tech Blog</h1>
+    </div>
+    <div>
+      {{#if loggedIn}}
+      <h1>Name</h1>
+      {{/if}}
+    </div>
   </nav>
-{{{body}}}
+  {{{body}}}
 
-{{#if loggedIn}}
+  {{#if loggedIn}}
+  {{#if offCreateBlogPost}}
+  <a href="/create_blogpost"><button id="create-blogpost">Create Blog Post</button></a>
+  {{/if}}
+  {{/if}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
-{{/if}}
+  {{/if}}
 </body>
 
 </html>

@@ -16,12 +16,22 @@ router.get('/', async (req, res) => {
         const blogPosts = blogPostData.map((blogpost) =>
             blogpost.get({ plain: true })
         );
+
+        if (blogPosts.length == 0) {
+            res.render('no-blogposts', {
+                loggedIn: req.session.loggedIn,
+                offCreateBlogPost: true
+            });
+            return;
+        }
+
+        console.log(blogPosts);
         res.render('homepage', {
             blogPosts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            offCreateBlogPost: true
         });
 
-        // res.status(200).json(blogPostData);
     } catch (err) {
         res.status(500).json(err)
     }
