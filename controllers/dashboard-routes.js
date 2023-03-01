@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User, BlogPost } = require('../models')
 
 router.get('/', async (req, res) => {
-
     if (!req.session.loggedIn) {
         res.redirect('/login');
         return;
@@ -26,14 +25,20 @@ router.get('/', async (req, res) => {
         });
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
+    try {
+        console.log(req.body.postId)
     const deleteBlogpost = await BlogPost.destroy({
         where: {
-            id: req.params.id
+            id: req.body.postId
         },
     });
+    console.log(deleteBlogpost);
     res.status(200).json(deleteBlogpost)
-
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    
 });
 
 module.exports = router;

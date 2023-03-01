@@ -14,21 +14,23 @@
 <body>
   <nav>
     <div>
-      <a href="/">Home</a>
-      <a href="/dashboard">Dashboard</a>
-      {{#if loggedIn}}
-      <a href="/create_blogpost" id="create-blogpost">Create Blog Post</a>
-      {{/if}}
-      {{#if loggedIn}}
-      <a id="logout" href="/">Logout</a>
-      {{else}}
-      <a href="/login">Login</a>
-      {{/if}}
       <h1>The Tech Blog</h1>
+      <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        {{#if loggedIn}}
+        <a href="/create_blogpost" id="create-blogpost">Create Blog Post</a>
+        {{/if}}
+        {{#if loggedIn}}
+        <a id="logout" href="/">Logout</a>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </div>
     </div>
     <div>
       {{#if loggedIn}}
-      <h1>{{username}}</h1>
+      <h1 id="username">{{username}}</h1>
       {{/if}}
     </div>
   </nav>
