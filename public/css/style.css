@@ -38,16 +38,8 @@ nav a {
   padding: 15px;
   font-size: 25px;
   text-decoration: none;
+  margin: 10px;
 }
-
-/* #logout {
-  color: var(--cream);
-  font-size: 25px;
-  width: 10%;
-  height: 30%;
-  background: none;
-  border: none;
-} */
 
 .card {
   margin: 30px;
@@ -69,6 +61,21 @@ nav a {
 
 .description {
   padding: 10px;
+}
+
+.comments {
+  font-size: 30px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.comment-description {
+  margin-left: 40px;
+}
+
+.comment-name {
+  margin-left: 100px;
+  margin-bottom: 20px;
 }
 
 .form-card {
@@ -110,7 +117,7 @@ label {
   font-size: 20px;
 }
 
-.signup-btn, .create-blogpost-btn{
+.signup-btn, .create-blogpost-btn, .create-comment-btn {
   margin: 10px 0px 10px 0px;
   padding: 10px;
   border-radius: 10px;
@@ -126,18 +133,6 @@ label {
   color: var(--brown);
 }
 
-#create-blogpost {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  font-size: 30px;
-  margin: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: var(--brown);
-  color: var(--cream);
-}
-
 #no-blogposts {
   color: var(--brown);
   font-size: 60px;
@@ -145,6 +140,24 @@ label {
   margin-top: 200px;
 }
 
-#blogpost-textarea {
+#blogpost-textarea, #comment-textarea {
   resize: none;
+}
+
+.btn {
+  font-size: 25px;
+  border-radius: 5px;
+  background-color: var(--cream);
+  color: var(--brown);
+  margin-left: 10px;
+}
+
+.delete:hover {
+  background-color: rgb(97, 0, 0);
+  color: whitesmoke;
+}
+
+.add-comment:hover {
+  background-color: rgb(0, 25, 71);
+  color: whitesmoke;
 }

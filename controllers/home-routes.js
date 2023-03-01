@@ -20,30 +20,20 @@ router.get('/', async (req, res) => {
         if (blogPosts.length == 0) {
             res.render('no-blogposts', {
                 loggedIn: req.session.loggedIn,
-                offCreateBlogPost: true
+                username: req.session.username
             });
             return;
         }
-
-        console.log(blogPosts);
+        console.log(req.session.username)
         res.render('homepage', {
             blogPosts,
             loggedIn: req.session.loggedIn,
-            offCreateBlogPost: true
+            username: req.session.username
         });
 
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
-})
-
-
-
-
-
-
-
-
-
+});
 
 module.exports = router;

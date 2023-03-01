@@ -1,6 +1,8 @@
 <h1>Welcome, {{blogPosts.username}}</h1>
-<div class="user-blogposts">
+<div id="user-blogposts">
 {{#each blogPosts.blog_posts as |blogpost|}}
 {{> dashboard-details}}
 {{/each}}
 </div>
+
+<script src="js/dashboard.js"></script>

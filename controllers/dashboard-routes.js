@@ -22,9 +22,18 @@ router.get('/', async (req, res) => {
         res.render('dashboard', {
             blogPosts,
             loggedIn: req.session.loggedIn,
-            offCreateBlogPost: true
+            username: req.session.username
         });
 });
 
+router.delete('/:id', async (req, res) => {
+    const deleteBlogpost = await BlogPost.destroy({
+        where: {
+            id: req.params.id
+        },
+    });
+    res.status(200).json(deleteBlogpost)
+
+});
 
 module.exports = router;

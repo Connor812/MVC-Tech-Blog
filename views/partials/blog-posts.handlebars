@@ -1,9 +1,19 @@
 <div class="card">
     <div class="card-header">
         <h3>{{title}}</h3>
-        <p>Posted by {{user.username}} on {{date}}</p>
+        <p>Posted by {{user.username}} on {{date}}<a href="/add_comment" ><button class="btn add-comment">Add Comment</button></a></p>
     </div>
     <div class="description">
         {{description}}
     </div>
+    {{#if comments.length}}
+    <div>
+        <h2 class="comments">Comments</h2>
+        <div>
+            {{#each comments as |comment|}}
+            {{> comments-details}}
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
 </div>

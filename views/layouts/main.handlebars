@@ -8,7 +8,7 @@
   <title>MVC Tech Blog</title>
   <!-- <link rel="stylesheet" type="text/css" href="public/css/jass.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -16,6 +16,9 @@
     <div>
       <a href="/">Home</a>
       <a href="/dashboard">Dashboard</a>
+      {{#if loggedIn}}
+      <a href="/create_blogpost" id="create-blogpost">Create Blog Post</a>
+      {{/if}}
       {{#if loggedIn}}
       <a id="logout" href="/">Logout</a>
       {{else}}
@@ -25,17 +28,13 @@
     </div>
     <div>
       {{#if loggedIn}}
-      <h1>Name</h1>
+      <h1>{{username}}</h1>
       {{/if}}
     </div>
   </nav>
+
   {{{body}}}
 
-  {{#if loggedIn}}
-  {{#if offCreateBlogPost}}
-  <a href="/create_blogpost"><button id="create-blogpost">Create Blog Post</button></a>
-  {{/if}}
-  {{/if}}
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}

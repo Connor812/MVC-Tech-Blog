@@ -6,10 +6,11 @@ router.get('/', (req, res) => {
         return;
     }
     res.render('login', {
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        username: req.session.username
     }
     )
-})
+});
 
 
 
