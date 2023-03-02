@@ -1,0 +1,33 @@
+<div class="card" id="{{renderBlogpost.id}}">
+    <div class="card-header">
+        <h3>{{renderBlogpost.title}}</a></h3>
+        <p>Posted by {{renderBlogpost.user.username}} on {{renderBlogpost.date}}</p>
+    </div>
+    <div class="description">
+        {{renderBlogpost.description}}
+    </div>
+    {{#if renderBlogpost.comments.length}}
+    <div>
+        <h2 class="comments">Comments</h2>
+        <div>
+            {{#each renderBlogpost.comments as |comment|}}
+            {{> comments-details}}
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+</div>
+
+<form class="create-form form-card">
+    <div class="form-card-header">
+        Add Comment
+    </div>
+    <div class="form-input">
+        <label for="blogpost">Your Comment:</label>
+        <textarea class="input" type="text" id="comment-textarea" placeholder="Enter Comment Here" cols="50" rows="17"></textarea>
+        <button class="create-comment-btn">Comment!</button>
+
+    </div>
+</form>
+
+<script src="/js/comment.js"></script>

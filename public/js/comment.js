@@ -1,22 +1,29 @@
-const commentOnBlogpost = document.querySelector("#all-blogposts");
+const commentFormHandler = async (event) => {
+    event.preventDefault();
+  
+    const comment = document.querySelector('#comment-textarea').value.trim();
+  
+    if (comment) {
 
-commentOnBlogpost.addEventListener("click", (e) => {
-    if (e.target.value !== undefined) {
-        var blogpost_id = e.target.value;
-        console.log(blogpost_id)
-        fetch(`/add_comment/${e.target.value}`, {
-            method: 'GET',
-        })
-            .then((response) => {
-                console.log(response)
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                // location.reload();
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        const blogpost = document.querySelector('.card');
+        const blogPost_id = blogpost.getAttribute('id');
+    
+      const response = await fetch('/create_comment', {
+        method: 'POST',
+        body: JSON.stringify({ blogPost_id, comment }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace(`/#${blogPost_id}`);
+      } else {
+        alert('Failed to Create BlogPost');
+      }
+    } else {
+      alert('Need to enter information');
     }
-    e.stopPropagation();
-});
+  };
+  
+  document
+    .querySelector('.create-form')
+    .addEventListener('submit', commentFormHandler);

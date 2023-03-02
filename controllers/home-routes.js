@@ -4,12 +4,16 @@ const { BlogPost, Comment, User } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const blogPostData = await BlogPost.findAll({
+            order: [['id', 'DESC']],
             include: [
                 {
                     model: Comment
                 },
                 {
-                    model: User
+                    model: User,
+                    attributes: {
+                        exclude: ['password']
+                    }
                 },
             ],
         });
@@ -24,7 +28,6 @@ router.get('/', async (req, res) => {
             });
             return;
         }
-        console.log(req.session.username)
         res.render('homepage', {
             blogPosts,
             loggedIn: req.session.loggedIn,
@@ -35,5 +38,51 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+router.get('/blogpost', async (req, res) => {
+    const blogpostId = req.query.id;
+    console.log(blogpostId);
+
+    const blogpost = await BlogPost.findOne({
+        where: {
+            id: blogpostId
+        },
+        include: [
+            {
+                model: Comment
+            },
+            {
+                model: User,
+                attributes: {
+                    exclude: ['password']
+                }
+            },
+        ],
+        
+        
+    });
+
+    const renderBlogpost = blogpost.get({ plain: true });
+    console.log(renderBlogpost);
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    }
+    res.render('comment', {
+        renderBlogpost,
+        loggedIn: req.session.loggedIn,
+        username: req.session.username
+    });
+});
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

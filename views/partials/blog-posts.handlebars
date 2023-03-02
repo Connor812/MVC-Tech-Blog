@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card" id="{{id}}">
     <div class="card-header">
-        <h3><a href="/api/comment/{{id}}">{{title}}</a></h3>
-        <p>Posted by {{user.username}} on {{date}}<a href="/api/comment/{{id}}" value="{{id}}"><button class="btn add-comment" value="{{id}}" >Add Comment</button></a></p>
+        <h3><a href="/blogpost?id={{id}}">{{title}}</a></h3>
+        <p>Posted by {{user.username}} on {{date}}<a href="/blogpost?id={{id}}"><button class="btn add-comment" value="{{id}}" >Add Comment</button></a></p>
     </div>
     <div class="description">
         {{description}}
