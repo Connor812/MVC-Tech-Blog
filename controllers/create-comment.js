@@ -3,7 +3,8 @@ const { Comment } = require('../models');
 const date = require('../utils/helpers');
 
 router.post('/', async (req, res) => {
-try{
+    
+    try{
     const newComment = await Comment.create({
         blogPost_id: req.body.blogPost_id,
         commented_by: req.session.username,
@@ -18,8 +19,5 @@ res.status(200).json(newComment);
         res.status(500).json(err);
     }
 });
-
-
-
 
 module.exports = router;

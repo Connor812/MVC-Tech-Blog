@@ -65,6 +65,10 @@ router.get('/blogpost', async (req, res) => {
 
     const renderBlogpost = blogpost.get({ plain: true });
     console.log(renderBlogpost);
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    }
     res.render('comment', {
         renderBlogpost,
         loggedIn: req.session.loggedIn,
