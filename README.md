@@ -15,7 +15,7 @@ This is a website that every coder should be on. It is a place to read and post 
 
 ## Where-to-find🔌
 
-Heroku Link: [The Tech Blog]()
+Heroku Link: [The Tech Blog](https://the-tech-blog-connor.herokuapp.com/)
 GitHub Repo: [Connor812](https://github.com/Connor812/MVC-Tech-Blog.git)
 
 ## Usage🔋
